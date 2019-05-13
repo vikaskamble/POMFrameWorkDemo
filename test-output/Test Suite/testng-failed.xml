@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Test Suite]" parallel="methods">
+  <parameter name="appURL" value="https://opensource-demo.orangehrmlive.com"/>
+  <parameter name="browserType" value="chrome"/>
+  <listeners>
+    <listener class-name="com.afour.base.TestListener"/>
+  </listeners>
+  <test thread-count="1" name="Sanity Tests(failed)" parallel="methods">
+    <classes>
+      <class name="com.afour.tests.HomePageTest">
+        <methods>
+          <include name="aftermethod"/>
+          <include name="tearDown"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="verifyHomePage"/>
+        </methods>
+      </class> <!-- com.afour.tests.HomePageTest -->
+    </classes>
+  </test> <!-- Sanity Tests(failed) -->
+</suite> <!-- Failed suite [Test Suite] -->

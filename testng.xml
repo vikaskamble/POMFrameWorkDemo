@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite" parallel="methods" thread-count="1" verbose="1">
+	
+	<listeners>
+		<listener class-name="com.afour.base.TestListener" />
+	</listeners>
+	
+	<parameter name="browserType" value="chrome" />
+	<parameter name="appURL" value="https://opensource-demo.orangehrmlive.com" />
+
+	<test name="Sanity Tests">
+		<classes>	
+		<class name="com.afour.tests.Admin_UserMgt_Test"/>		
+			<!-- <class name="com.afour.tests.HomePageTest" /> -->
+		</classes>
+	</test>
+	
+	
+	<!-- <parameter name="browserType" value="chrome" />
+	<parameter name="appURL" value="https://google.com" /> 
+	
+	<test name="Admin Tests2">
+		<classes>
+			<class name="com.afour.tests.BasePageTest" />
+			<class name="com.afour.tests.SignInPageTest" />
+			<class name="com.afour.tests.CreateAccountTest" />
+		</classes>
+	</test> -->
+	
+</suite>
+
