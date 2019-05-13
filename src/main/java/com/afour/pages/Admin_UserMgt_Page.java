@@ -17,6 +17,12 @@ public class Admin_UserMgt_Page {
 		navigate_AdminTab();
 		navigate_User_Mget_SubTab();
 		navigate_User();
+		is_navigate_User();
+	}
+
+	private void is_navigate_User() {
+		ExtentTestManager.getTest().log(Status.INFO, "Verifying Navigated User Tab.");
+		
 	}
 
 	private void navigate_User() throws Exception {
