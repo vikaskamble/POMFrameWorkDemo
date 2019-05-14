@@ -18,6 +18,12 @@ public class Admin_UserMgt_Page {
 		navigate_User_Mget_SubTab();
 		navigate_User();
 		is_navigate_User();
+		add_User();
+	}
+
+	private void add_User() {
+		ExtentTestManager.getTest().log(Status.INFO, "Add User.");	
+		
 	}
 
 	private void is_navigate_User() {

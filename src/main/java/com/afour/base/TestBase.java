@@ -18,9 +18,10 @@ public class TestBase extends InitPages{
 	
 	private static final String String = null;
 	private WebDriver driver;
+	private static String os_name = System.getProperty("os.name");
 	
 	//private static String driverPath = "C:\\JAVA Work\\POMFrameWorkDemo\\Drivers\\";
-	private static String driverPath = System.getProperty("user.dir")+"\\"+"Drivers"+"\\";
+	private static String driverPath = System.getProperty("user.dir")+"/"+"Drivers"+"/";
 	
 
 	public WebDriver getDriver() {
@@ -80,17 +81,32 @@ public class TestBase extends InitPages{
 	 * @param appURL URL is first parameter
 	 * @return driver
 	 * @throws Exception
+	 * @author vikas
+	 * @since 2019-05-14
 	 */
 	private WebDriver initChromeDriver(String appURL) throws Exception {		
 		Reporter.log("===== Launching google chrome with new profile... =====", true);	
-		Reporter.log("===== Browser Session Started =====", true);		
+		Reporter.log("===== Browser Session Started =====", true);	
 		
-		System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		//System.out.println(System.getProperty("os.name"));		
+		//System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
 		
+		if(os_name.equalsIgnoreCase("Linux")) {
+			// For linux OS
+			System.out.println(driverPath +"chromedriver");
+			//System.setProperty("webdriver.chrome.driver", driverPath  + "chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+			
+		}else {			
+			System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+		}	
+		
+		WebDriver driver = new ChromeDriver();		
 		driver.manage().window().maximize();
 		Reporter.log("Navigating URL : " + appURL, true);
+		Thread.sleep(2000);
 		driver.navigate().to(appURL);
+		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
@@ -105,7 +121,7 @@ public class TestBase extends InitPages{
 	 * @since 2019-05-08
 	 */
 	
-	@Parameters({ "browserType", "appURL" })
+	@Parameters({"browserType", "appURL" })
 	@BeforeMethod
 	public void initializeTestBaseSetup(@Optional String browserType, @Optional String appURL) {
 		try {
