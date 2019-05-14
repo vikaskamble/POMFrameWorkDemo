@@ -97,10 +97,11 @@ public class HomePage {
 
 	}
 
-	private void isLoginSuccess() {
+	private void isLoginSuccess() throws InterruptedException {
 		ExtentTestManager.getTest().log(Status.INFO, "Verifying is login successful..?");
 		WebElement welcome_msg_ele = driver.findElement(welcome_msg);
 		if (welcome_msg_ele.isDisplayed() && welcome_msg_ele.isEnabled()) {			
+			Thread.sleep(2000);
 			ExtentTestManager.getTest().log(Status.PASS, "Application logged in successfully.");
 		} else {
 			ExtentTestManager.getTest().log(Status.FAIL, "Login verification failed.");
