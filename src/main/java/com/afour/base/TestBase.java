@@ -92,9 +92,12 @@ public class TestBase extends InitPages{
 		//System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
 		
 		if(os_name.equalsIgnoreCase("Linux")) {
+			
 			// For linux OS
 			System.out.println(driverPath +"chromedriver");
+			
 			//System.setProperty("webdriver.chrome.driver", driverPath  + "chromedriver");
+			
 			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 			
 		}else {			
