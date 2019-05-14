@@ -11,16 +11,16 @@
       <![CDATA[Navigating URL : https://opensource-demo.orangehrmlive.com]]>
     </line>
   </reporter-output>
-  <suite name="Test Suite" duration-ms="17294" started-at="2019-05-13T06:58:44Z" finished-at="2019-05-13T06:59:01Z">
+  <suite name="Test Suite" duration-ms="19450" started-at="2019-05-14T05:00:34Z" finished-at="2019-05-14T05:00:53Z">
     <groups>
     </groups>
-    <test name="Sanity Tests" duration-ms="17294" started-at="2019-05-13T06:58:44Z" finished-at="2019-05-13T06:59:01Z">
+    <test name="Sanity Tests" duration-ms="19450" started-at="2019-05-14T05:00:34Z" finished-at="2019-05-14T05:00:53Z">
       <class name="com.afour.tests.Admin_UserMgt_Test">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="beforeclass" is-config="true" duration-ms="11" started-at="2019-05-13T06:58:44Z" finished-at="2019-05-13T06:58:44Z">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="beforeclass" is-config="true" duration-ms="16" started-at="2019-05-14T05:00:34Z" finished-at="2019-05-14T05:00:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="initializeTestBaseSetup" is-config="true" duration-ms="9085" started-at="2019-05-13T06:58:44Z" finished-at="2019-05-13T06:58:53Z">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="initializeTestBaseSetup" is-config="true" duration-ms="11133" started-at="2019-05-14T05:00:34Z" finished-at="2019-05-14T05:00:45Z">
           <params>
             <param index="0">
               <value>
@@ -45,19 +45,19 @@
             </line>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="setUp" is-config="true" duration-ms="1" started-at="2019-05-13T06:58:53Z" finished-at="2019-05-13T06:58:53Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="setUp" is-config="true" duration-ms="1" started-at="2019-05-14T05:00:45Z" finished-at="2019-05-14T05:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="addUser()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="addUser" duration-ms="2272" started-at="2019-05-13T06:58:53Z" finished-at="2019-05-13T06:58:55Z">
+        <test-method status="PASS" signature="addUser()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="addUser" duration-ms="2284" started-at="2019-05-14T05:00:45Z" finished-at="2019-05-14T05:00:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addUser -->
-        <test-method status="PASS" signature="aftermethod()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="aftermethod" is-config="true" duration-ms="690" started-at="2019-05-13T06:58:55Z" finished-at="2019-05-13T06:58:56Z">
+        <test-method status="PASS" signature="aftermethod()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="aftermethod" is-config="true" duration-ms="710" started-at="2019-05-14T05:00:47Z" finished-at="2019-05-14T05:00:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- aftermethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="tearDown" is-config="true" duration-ms="5209" started-at="2019-05-13T06:58:56Z" finished-at="2019-05-13T06:59:01Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.afour.tests.Admin_UserMgt_Test@28ac3dc3]" name="tearDown" is-config="true" duration-ms="5268" started-at="2019-05-14T05:00:48Z" finished-at="2019-05-14T05:00:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

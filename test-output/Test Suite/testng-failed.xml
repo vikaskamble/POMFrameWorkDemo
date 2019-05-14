@@ -8,14 +8,16 @@
   </listeners>
   <test thread-count="1" name="Sanity Tests(failed)" parallel="methods">
     <classes>
-      <class name="com.afour.tests.HomePageTest">
+      <class name="com.afour.tests.Admin_UserMgt_Test">
         <methods>
+          <include name="addUser"/>
+          <include name="setUp"/>
           <include name="aftermethod"/>
+          <include name="beforeclass"/>
           <include name="tearDown"/>
           <include name="initializeTestBaseSetup"/>
-          <include name="verifyHomePage"/>
         </methods>
-      </class> <!-- com.afour.tests.HomePageTest -->
+      </class> <!-- com.afour.tests.Admin_UserMgt_Test -->
     </classes>
   </test> <!-- Sanity Tests(failed) -->
 </suite> <!-- Failed suite [Test Suite] -->
