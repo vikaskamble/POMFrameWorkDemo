@@ -18,9 +18,10 @@ public class TestBase extends InitPages{
 	
 	private static final String String = null;
 	private WebDriver driver;
+	private static String os_name = System.getProperty("os.name");
 	
 	//private static String driverPath = "C:\\JAVA Work\\POMFrameWorkDemo\\Drivers\\";
-	private static String driverPath = System.getProperty("user.dir")+"\\"+"Drivers"+"\\";
+	private static String driverPath = System.getProperty("user.dir")+"/"+"Drivers"+"/";
 	
 
 	public WebDriver getDriver() {
@@ -31,12 +32,24 @@ public class TestBase extends InitPages{
 	 * This method is use to set the browser
 	 * @param browserType Browser Type is first parameter 
 	 * @param appURL Application URL is second parameter
-	 * @throws Exception
+	 * @throws Exception exception
 	 * @author vikas.k
 	 * @since 2019-05-08
 	 */
 	
 	private void setDriver(String browserType, String appURL) throws Exception {
+		if (browserType.equalsIgnoreCase("chrome")){
+			driver = initChromeDriver(appURL);
+		}else if (browserType.equalsIgnoreCase("firefox")){
+			driver = initFirefoxDriver(appURL);
+		}else if (browserType.equalsIgnoreCase("ie")){
+			System.out.println("Launch IE browser");
+		}else{
+			System.out.println("browser : " + browserType + " is invalid, Launching Firefox as browser of choice..");
+			driver = initFirefoxDriver(appURL);
+		}
+
+		/*
 		switch (browserType.toLowerCase()) {
 		case "chrome":
 			driver = initChromeDriver(appURL);
@@ -48,22 +61,25 @@ public class TestBase extends InitPages{
 			System.out.println("browser : " + browserType + " is invalid, Launching Firefox as browser of choice..");
 			driver = initFirefoxDriver(appURL);
 		}
+		*/
 	}
+
 	
 	/**
 	 * This method is use to initialize the firefox browser
 	 * @param appURL url
 	 * @return driver
-	 * @throws InterruptedException
+	 * @throws InterruptedException exception
 	 * @author vikas.k
 	 * @since 2019-05-08
 	 */
 
 	private WebDriver initFirefoxDriver(String appURL) throws InterruptedException {
 		//System.out.println("Launching Firefox browser..");
-		Reporter.log("===== Launching fire fox browser ... =====", true);	
-		Reporter.log("===== Browser Session Started =====", true);
-		
+		//Reporter.log("===== Launching fire fox browser ... =====", true);
+		//Reporter.log("===== Browser Session Started =====", true);
+		System.out.println("===== Launching fire fox browser ... =====");
+		System.out.println("===== Browser Session Started =====");
 		System.setProperty("webdriver.gecko.driver", driverPath +"geckodriver.exe");	
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 		capabilities.setCapability("marionette",true);
@@ -79,18 +95,34 @@ public class TestBase extends InitPages{
 	 * This method is use to initialize the google chrome browser
 	 * @param appURL URL is first parameter
 	 * @return driver
-	 * @throws Exception
+	 * @throws Exception Exception
+	 * @author vikas
+	 * @since 2019-05-14
 	 */
-	private WebDriver initChromeDriver(String appURL) throws Exception {		
-		Reporter.log("===== Launching google chrome with new profile... =====", true);	
-		Reporter.log("===== Browser Session Started =====", true);		
+	private WebDriver initChromeDriver(String appURL) throws Exception {
+		System.out.println("===== Launching google chrome with new profile... =====");
+		System.out.println("===== Browser Session Started =====");
 		
-		System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		//System.out.println(System.getProperty("os.name"));		
+		//System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
 		
+		if(os_name.equalsIgnoreCase("Linux")) {
+			// For linux OS
+			System.out.println(driverPath +"chromedriver");
+			//System.setProperty("webdriver.chrome.driver", driverPath  + "chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+			
+		}else {			
+			System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+		}	
+		
+		WebDriver driver = new ChromeDriver();		
 		driver.manage().window().maximize();
-		Reporter.log("Navigating URL : " + appURL, true);
+		//Reporter.log("Navigating URL : " + appURL, true);
+		System.out.println("Navigating URL : " + appURL);
+		Thread.sleep(2000);
 		driver.navigate().to(appURL);
+		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
@@ -100,12 +132,11 @@ public class TestBase extends InitPages{
 	 * This method is use to set driver 
 	 * @param browserType browser Type is first parameter 
 	 * @param appURL Application URL is second parameter
-	 * @return none
 	 * @author vikas.k
 	 * @since 2019-05-08
 	 */
-	
-	@Parameters({ "browserType", "appURL" })
+
+	@Parameters({"browserType", "appURL"})
 	@BeforeMethod
 	public void initializeTestBaseSetup(@Optional String browserType, @Optional String appURL) {
 		try {
@@ -118,7 +149,7 @@ public class TestBase extends InitPages{
 			}
 
 		} catch (Exception e) {
-			System.out.println("Error....." + e.getStackTrace());
+			System.out.println("Error....." + e.getStackTrace().toString());
 		}
 	}
 	

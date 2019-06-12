@@ -33,7 +33,6 @@ public class HomePage {
 	
 	/**
 	 * This method is use to navigate Login Page
-	 * @throws Exception
 	 */
 	public void loginPage() throws Exception {
 		ExtentTestManager.getTest().log(Status.INFO, "Login Page Navigated successfully");
@@ -84,7 +83,6 @@ public class HomePage {
 	 * 
 	 * @param username username
 	 * @param password password
-	 * @return
 	 * @author vikas.k
 	 * @since 2019-05-10
 	 */
@@ -97,10 +95,11 @@ public class HomePage {
 
 	}
 
-	private void isLoginSuccess() {
+	private void isLoginSuccess() throws InterruptedException {
 		ExtentTestManager.getTest().log(Status.INFO, "Verifying is login successful..?");
 		WebElement welcome_msg_ele = driver.findElement(welcome_msg);
 		if (welcome_msg_ele.isDisplayed() && welcome_msg_ele.isEnabled()) {			
+			Thread.sleep(2000);
 			ExtentTestManager.getTest().log(Status.PASS, "Application logged in successfully.");
 		} else {
 			ExtentTestManager.getTest().log(Status.FAIL, "Login verification failed.");
@@ -112,7 +111,7 @@ public class HomePage {
 		ExtentTestManager.getTest().log(Status.INFO, "Clicking on login button.");
 		WebElement login_Bbtn_ele = driver.findElement(login_Bbtn);
 		if (login_Bbtn_ele.isDisplayed() && login_Bbtn_ele.isEnabled()) {			
-			login_Bbtn_ele.click();;
+			login_Bbtn_ele.click();
 			ExtentTestManager.getTest().log(Status.PASS, "login button clicked on successfully.");
 		} else {
 			ExtentTestManager.getTest().log(Status.FAIL, "login button WebElement was not found.");
@@ -133,8 +132,8 @@ public class HomePage {
 
 	/**
 	 * This methos is use enter username in username text box.
-	 * @param username
-	 * @throws Exception
+	 * @param username username
+	 * @throws Exception exception
 	 * @author vikas.k
 	 * @since 2019-05-10
 	 */

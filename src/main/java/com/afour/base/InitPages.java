@@ -18,7 +18,7 @@ public class InitPages {
 	/**
 	 * This method use to initialize web pages
 	 * @return none
-	 * @throws Exception
+	 * @throws Exception exception
 	 * @author vikas.k
 	 * @since 2019-05-08
 	 */
