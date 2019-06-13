@@ -3,8 +3,6 @@ package com.afour.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.seleniumhq.jetty9.server.ResourceService.WelcomeFactory;
-
 import com.afour.base.ExtentTestManager;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -17,14 +15,13 @@ public class HomePage {
 	protected ExtentReports extent;
 	protected ExtentTest test;
 	protected  WebDriver driver;
+
 	private By signInButton = By.linkText("Sign in");
-	
 	private By loginPage = By.id("divLogo");
 	private By username_texBox = By.id("txtUsername");
 	private By password_texBox = By.id("txtPassword");
 	private By login_Bbtn = By.id("btnLogin");
 	private By welcome_msg = By.id("welcome");
-	
 	
 
 	public HomePage(WebDriver driver) {
@@ -141,6 +138,7 @@ public class HomePage {
 	 */
 	private void enterUserName(String username) throws Exception {
 		ExtentTestManager.getTest().log(Status.INFO, "Enterning user name in username textbox.");
+		//ExtentTestManager.getTest().log(Status.INFO, "Enterning user name in username textbox.");
 		WebElement username_texBox_ele = driver.findElement(username_texBox);
 		if(username_texBox_ele.isDisplayed() && username_texBox_ele.isEnabled()) {
 			username_texBox_ele.clear();

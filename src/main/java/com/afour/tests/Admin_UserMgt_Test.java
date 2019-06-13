@@ -21,7 +21,7 @@ public class Admin_UserMgt_Test extends TestBase {
 	
 	@Test
 	public void addUser() throws Exception {
-		//ExtentTestManager.getTest().assignCategory("Sanity Test");		
+		ExtentTestManager.getTest().assignCategory("Sanity Test");
 		HomePage homePage = new HomePage(driver);		
 		homePage._ValidLogin("Admin", "admin123");
 		Admin_UserMgt_Page usr_Mgt = new Admin_UserMgt_Page(driver);
