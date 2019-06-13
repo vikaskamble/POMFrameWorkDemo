@@ -25,6 +25,6 @@ public class InitPages {
 	public void initializeOnlyWebPages() throws Exception {
 		globalData = new GlobalData();		
 		sendMail = new SendMail();
-		
+
 	}
 }
